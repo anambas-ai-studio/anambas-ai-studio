@@ -286,3 +286,89 @@ ul.check-list li::before {
   .specs-grid { grid-template-columns: 1fr; }
   h1 { font-size: 2rem; }
 }
+
+/* --- TAMBAHAN KHUSUS LAYOUT PAKET (3 KOLOM) --- */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.package-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: left;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Style khusus Paket PRO (Highlight) */
+.package-card.pro {
+  border: 2px solid #f59e0b; /* Warna Emas/Orange */
+  background: #fffbeb; /* Background agak kuning tipis */
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+}
+
+.pro-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f59e0b;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pkg-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+  text-align: center;
+}
+
+.pkg-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.pkg-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pkg-list li {
+  font-size: 0.9rem;
+  color: #374151;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+/* Ceklis kuning/emas sesuai gambar */
+.pkg-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #f59e0b; 
+  font-weight: bold;
+}

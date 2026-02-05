@@ -1,0 +1,77 @@
+/* SERVICE PAGE BASE */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0b0c10;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* HERO */
+.service-hero {
+  padding: 80px 20px 60px;
+  text-align: center;
+}
+
+.service-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.service-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #9ca3af;
+}
+
+/* SECTION */
+.service-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.service-section h2 {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
+
+.service-section ul,
+.service-section ol {
+  padding-left: 20px;
+}
+
+.service-section li {
+  margin-bottom: 10px;
+  color: #d1d5db;
+}
+
+/* CTA */
+.service-cta {
+  text-align: center;
+  margin: 80px 0;
+}
+
+.service-btn {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.service-btn:hover {
+  background: #4338ca;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  border-top: 1px solid #1f2933;
+}

@@ -1,195 +1,233 @@
-/* SERVICE PAGE - PREMIUM LOOK */
+/* SERVICE PAGE - PRODUCT CARD STYLE */
 
 :root {
-  --bg: #0b0c10;
-  --surface: #15151a;
-  --surface-hover: #1f1f25;
-  --primary: #4f46e5;
-  --primary-glow: rgba(79, 70, 229, 0.4);
-  --text: #e5e7eb;
-  --text-muted: #9ca3af;
+  --page-bg: #f3f4f6; /* Abu-abu sangat muda untuk background luar */
+  --card-bg: #ffffff; /* Putih bersih untuk kartu produk */
+  --text-main: #111827; /* Hitam pekat untuk judul */
+  --text-body: #374151; /* Abu tua untuk deskripsi */
+  --text-muted: #6b7280; /* Abu sedang untuk info tambahan */
+  --primary: #4f46e5; /* Indigo untuk tombol/aksen */
+  --border: #e5e7eb; /* Garis pembatas halus */
+  --success: #059669; /* Hijau untuk checklist/bonus */
 }
 
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background-color: var(--page-bg);
+  color: var(--text-body);
   line-height: 1.6;
-  /* Pattern background halus */
-  background-image: radial-gradient(#1f2937 1px, transparent 1px);
-  background-size: 40px 40px;
+  padding: 40px 20px;
 }
 
-/* HERO */
-.service-hero {
-  padding: 100px 20px 60px;
-  text-align: center;
-  position: relative;
+/* CONTAINER (Product Card Wrapper) */
+.product-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Bayangan lembut */
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 1. HEADER & THUMBNAIL */
+.product-header {
+  padding: 0;
+}
+
+.product-thumbnail {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #e0e7ff 0%, #eef2ff 100%); /* Placeholder visual */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
   overflow: hidden;
 }
 
-/* Efek Glow di belakang Hero */
-.service-hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-  opacity: 0.5;
-  z-index: -1;
-  pointer-events: none;
+.product-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.service-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 16px;
-  background: linear-gradient(to right, #fff, #a5b4fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  letter-spacing: -1px;
+.product-title-section {
+  padding: 40px 40px 20px;
+  border-bottom: 1px solid var(--border);
 }
 
-.service-hero p {
-  max-width: 600px;
-  margin: 0 auto;
-  color: var(--text-muted);
+.product-tag {
+  display: inline-block;
+  background: #e0e7ff;
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: var(--text-main);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+.product-summary {
   font-size: 1.1rem;
+  color: var(--text-muted);
 }
 
-/* SECTION GLOBAL */
-.service-section {
-  max-width: 800px;
-  margin: 80px auto;
-  padding: 0 20px;
+/* 2. BODY CONTENT */
+.product-body {
+  padding: 40px;
 }
 
-.service-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  border-left: 4px solid var(--primary);
-  padding-left: 16px;
-  color: #fff;
-}
-
-/* LIST STYLING (Benefit & Target) */
-.service-section ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
-}
-
-.service-section li {
-  background: var(--surface);
-  padding: 16px 20px;
-  border-radius: 12px;
-  border: 1px solid #2d2d35;
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 16px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
-  transition: transform 0.2s, border-color 0.2s;
 }
 
-.service-section li:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary);
+.section-title:first-child {
+  margin-top: 0;
 }
 
-/* Custom Checkmark Icon */
-.service-section li::before {
-  content: '✓';
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
+/* LIST STYLES */
+ul.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.check-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  color: var(--text-body);
+}
+
+ul.check-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* SPECS GRID (Format, License, etc) */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.spec-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.spec-item span {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* BOXES (Bonus, Guarantee) */
+.box-bonus {
+  background: #ecfdf5; /* Hijau muda */
+  border: 1px solid #d1fae5;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.box-bonus h3 {
+  margin: 0 0 8px 0;
+  color: #065f46;
+  font-size: 1rem;
+}
+
+.box-guarantee {
+  background: #fffbeb; /* Kuning muda */
+  border: 1px solid #fef3c7;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #92400e;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.faq-question {
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.faq-answer {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* 3. FOOTER / CTA STICKY */
+.product-footer {
+  padding: 30px 40px;
+  background: #fafafa;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.cta-btn {
+  display: inline-block;
+  width: 100%;
   background: var(--primary);
   color: white;
-  border-radius: 50%;
-  margin-right: 12px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-/* WORKFLOW (Ordered List) */
-.service-section ol {
-  padding: 0;
-  list-style: none;
-  counter-reset: workflow-counter;
-}
-
-.service-section ol li {
-  position: relative;
-  background: var(--surface);
-  margin-bottom: 20px;
-  padding: 20px 20px 20px 70px; /* Space for number */
+  padding: 18px;
   border-radius: 12px;
-  border: 1px solid #2d2d35;
-}
-
-/* Stylized Numbers */
-.service-section ol li::before {
-  counter-increment: workflow-counter;
-  content: counter(workflow-counter);
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  background: #2d2d35;
-  color: var(--primary);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
   font-size: 1.1rem;
-  border: 1px solid var(--primary);
-}
-
-/* CTA BUTTON */
-.service-cta {
-  text-align: center;
-  margin: 100px 0;
-  padding: 0 20px;
-}
-
-.service-btn {
-  background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
-  color: #fff;
+  font-weight: 700;
   border: none;
-  padding: 16px 40px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px; /* Pill shape */
   cursor: pointer;
-  box-shadow: 0 10px 25px -5px var(--primary-glow);
-  transition: all 0.3s ease;
+  transition: background 0.2s;
+  text-decoration: none;
 }
 
-.service-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 20px 35px -5px var(--primary-glow);
+.cta-btn:hover {
+  background: #4338ca;
 }
 
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 40px 0;
+.cta-subtext {
+  margin-top: 12px;
+  font-size: 0.85rem;
   color: var(--text-muted);
-  border-top: 1px solid #1f2933;
-  margin-top: 60px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-  .service-hero h1 { font-size: 2.2rem; }
-  .service-section ul { grid-template-columns: 1fr; }
+  body { padding: 0; background: var(--card-bg); }
+  .product-wrapper { border-radius: 0; box-shadow: none; border: none; }
+  .product-body, .product-title-section { padding: 25px; }
+  .specs-grid { grid-template-columns: 1fr; }
 }

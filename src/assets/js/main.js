@@ -1,11 +1,16 @@
 // src/assets/js/main.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("src/data/services.json")
-    .then(response => response.json())
+  fetch("/src/data/services.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load services.json");
+      }
+      return response.json();
+    })
     .then(data => {
       const servicesContainer = document.getElementById("services");
-      const phone = data.contact.whatsapp;
+      if (!servicesContainer) return;
 
       data.services
         .filter(service => service.active)
@@ -20,16 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="service-btn">Open Project</button>
           `;
 
+          // 👉 UBAH FLOW: ke halaman detail layanan
           card.querySelector(".service-btn").addEventListener("click", () => {
-            const message = encodeURIComponent(service.ctaMessage);
-            const url = `https://wa.me/${phone}?text=${message}`;
-            window.open(url, "_blank");
+            window.location.href = `/services/${service.slug}.html`;
           });
 
           servicesContainer.appendChild(card);
         });
     })
     .catch(error => {
-      console.error("Failed to load services.json:", error);
+      console.error("Error loading services:", error);
     });
 });

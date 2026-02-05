@@ -1,7 +1,7 @@
 // src/assets/js/main.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../data/services.json")
+  fetch("src/data/services.json")
     .then(response => response.json())
     .then(data => {
       const servicesContainer = document.getElementById("services");

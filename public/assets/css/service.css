@@ -1,77 +1,195 @@
-/* SERVICE PAGE BASE */
+/* SERVICE PAGE - PREMIUM LOOK */
+
+:root {
+  --bg: #0b0c10;
+  --surface: #15151a;
+  --surface-hover: #1f1f25;
+  --primary: #4f46e5;
+  --primary-glow: rgba(79, 70, 229, 0.4);
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+}
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b0c10;
-  color: #e5e7eb;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  /* Pattern background halus */
+  background-image: radial-gradient(#1f2937 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* HERO */
 .service-hero {
-  padding: 80px 20px 60px;
+  padding: 100px 20px 60px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek Glow di belakang Hero */
+.service-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .service-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
+  font-size: 3rem;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, #fff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .service-hero p {
-  max-width: 720px;
+  max-width: 600px;
   margin: 0 auto;
-  color: #9ca3af;
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
-/* SECTION */
+/* SECTION GLOBAL */
 .service-section {
-  max-width: 900px;
-  margin: 60px auto;
+  max-width: 800px;
+  margin: 80px auto;
   padding: 0 20px;
 }
 
 .service-section h2 {
-  margin-bottom: 16px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-left: 4px solid var(--primary);
+  padding-left: 16px;
+  color: #fff;
 }
 
-.service-section ul,
-.service-section ol {
-  padding-left: 20px;
+/* LIST STYLING (Benefit & Target) */
+.service-section ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
 }
 
 .service-section li {
-  margin-bottom: 10px;
-  color: #d1d5db;
+  background: var(--surface);
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #2d2d35;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
-/* CTA */
+.service-section li:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+/* Custom Checkmark Icon */
+.service-section li::before {
+  content: '✓';
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  margin-right: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* WORKFLOW (Ordered List) */
+.service-section ol {
+  padding: 0;
+  list-style: none;
+  counter-reset: workflow-counter;
+}
+
+.service-section ol li {
+  position: relative;
+  background: var(--surface);
+  margin-bottom: 20px;
+  padding: 20px 20px 20px 70px; /* Space for number */
+  border-radius: 12px;
+  border: 1px solid #2d2d35;
+}
+
+/* Stylized Numbers */
+.service-section ol li::before {
+  counter-increment: workflow-counter;
+  content: counter(workflow-counter);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: #2d2d35;
+  color: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 1px solid var(--primary);
+}
+
+/* CTA BUTTON */
 .service-cta {
   text-align: center;
-  margin: 80px 0;
+  margin: 100px 0;
+  padding: 0 20px;
 }
 
 .service-btn {
-  background: #4f46e5;
+  background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
   color: #fff;
   border: none;
-  padding: 14px 28px;
-  font-size: 1rem;
-  border-radius: 10px;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px; /* Pill shape */
   cursor: pointer;
+  box-shadow: 0 10px 25px -5px var(--primary-glow);
+  transition: all 0.3s ease;
 }
 
 .service-btn:hover {
-  background: #4338ca;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 35px -5px var(--primary-glow);
 }
 
 /* FOOTER */
 .footer {
   text-align: center;
-  padding: 30px 0;
-  font-size: 0.85rem;
-  color: #6b7280;
+  padding: 40px 0;
+  color: var(--text-muted);
   border-top: 1px solid #1f2933;
+  margin-top: 60px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .service-hero h1 { font-size: 2.2rem; }
+  .service-section ul { grid-template-columns: 1fr; }
 }

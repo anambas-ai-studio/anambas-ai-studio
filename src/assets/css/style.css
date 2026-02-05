@@ -1,0 +1,125 @@
+/* src/assets/css/style.css */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ROOT */
+:root {
+  --bg: #0e0e11;
+  --card: #15151a;
+  --text: #f2f2f2;
+  --muted: #a1a1aa;
+  --accent: #4f46e5;
+}
+
+/* BODY */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+  padding: 80px 20px 60px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* SERVICES */
+.services-wrapper {
+  padding: 40px 20px 80px;
+}
+
+.services-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+.service-card {
+  background-color: var(--card);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.service-card .subtitle {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.service-card .description {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* BUTTON */
+.service-btn {
+  align-self: flex-start;
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.service-btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+}
+
+/* FOOTER */
+.footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid #1f1f25;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "studio": "Anambas AI Studio",
+  "contact": {
+    "whatsapp": "6281268918360"
+  },
+  "services": [
+    {
+      "id": "ai-video",
+      "title": "AI Video Production",
+      "subtitle": "AI-powered visual storytelling",
+      "description": "Pembuatan video berbasis AI untuk promosi, branding, dan konten digital.",
+      "ctaMessage": "Halo, saya tertarik bekerja sama untuk layanan AI Video Production.",
+      "active": true
+    },
+    {
+      "id": "graphic-design",
+      "title": "Graphic Design",
+      "subtitle": "Branding & visual design",
+      "description": "Desain poster, feed sosial media, banner, dan kebutuhan visual brand.",
+      "ctaMessage": "Halo, saya tertarik bekerja sama untuk layanan Graphic Design.",
+      "active": true
+    },
+    {
+      "id": "video-editing",
+      "title": "Video Editing",
+      "subtitle": "Clean, cinematic, and engaging",
+      "description": "Editing video profesional untuk konten promosi, reels, dan dokumentasi.",
+      "ctaMessage": "Halo, saya tertarik bekerja sama untuk layanan Video Editing.",
+      "active": true
+    },
+    {
+      "id": "social-media",
+      "title": "Social Media Management",
+      "subtitle": "Content & growth strategy",
+      "description": "Manajemen media sosial, perencanaan konten, dan strategi engagement.",
+      "ctaMessage": "Halo, saya tertarik bekerja sama untuk layanan Social Media Management.",
+      "active": true
+    }
+  ]
+}
